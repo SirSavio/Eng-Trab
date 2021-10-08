@@ -1,62 +1,7 @@
 <template>
   <div class="mx-5">
 
-    <div
-      :class="`modal ${
-        !openDelete && 'opacity-0 pointer-events-none'
-      } z-50 fixed w-full h-full top-0 left-0 flex items-center justify-center`"
-    >
-      <div
-        class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"
-      ></div>
-
-      <div
-        class="modal-container bg-white w-11/12 md:max-w-xl mx-auto rounded shadow-lg z-50 overflow-y-auto"
-      >
-        <div class="modal-content py-4 text-left px-6">
-          <div class="flex justify-between items-center pb-3">
-            <p class="text-2xl font-bold text-green-500">Apagar Atendimento?</p>
-            <div
-              class="modal-close cursor-pointer z-50"
-              @click="openDelete = false"
-            >
-              <svg
-                class="fill-current text-gray-400"
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 18 18"
-              >
-                <path
-                  d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"
-                />
-              </svg>
-            </div>
-          </div>
-
-          <form @submit.prevent="deleteAttendance()">
-            <div class="flex-none md:flex md:space-x-4">
-                <p>Você tem certeza que deseja APAGAR o ATENDIMENTO?</p>
-            </div>
-
-            <div class="flex justify-end pt-2">
-              <button
-                type="button"
-                @click="openDelete = false"
-                class="px-6 py-3 bg-transparent p-3 rounded-lg text-green-500 hover:bg-gray-100 hover:text-green-500 mr-2"
-              >
-                Fechar
-              </button>
-              <button
-                class="px-6 py-3 bg-red-600 rounded-md text-white font-medium tracking-wide hover:bg-green-500"
-              >
-                Apagar
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+    
 
     <MessageCardFixed :title="title" :message="message" :type="type" />
     <div

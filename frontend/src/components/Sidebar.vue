@@ -40,7 +40,7 @@
           <span class="h-5 w-5">
             <i class="fas fa-hospital-user"></i>
           </span>
-          <span class="mx-4"> Novo Atendimento </span>
+          <span class="mx-4"> Vincular Paciente </span>
         </router-link>
 
         <router-link
@@ -65,30 +65,6 @@
             <i class="fas fa-user-md"></i>
           </span>
           <span class="mx-4"> Ler QR Code </span>
-        </router-link>
-
-        <router-link
-        v-if="User.user.type == 'A'"
-          class="flex items-center duration-200 mt-4 py-2 px-6 border-l-4"
-          :class="[$route.name === 'Novo Secretário' ? activeClass : inactiveClass]"
-          to="/novo-secretario"
-        >
-          <span class="h-5 w-5">
-            <i class="fas fa-notes-medical"></i>
-          </span>
-          <span class="mx-4"> Novo Secretário </span>
-        </router-link>
-        
-        <router-link
-        v-if="User.user.type != 'P'"
-          class="flex items-center duration-200 mt-4 py-2 px-6 border-l-4"
-          :class="[$route.name === 'NovoAgendamento' ? activeClass : inactiveClass]"
-          to="/novo-agendamento"
-        >
-          <span class="h-5 w-5">
-            <i class="fas fa-calendar-alt"></i>
-          </span>
-          <span class="mx-4"> Novo Agendamento </span>
         </router-link>
       </nav>
     </div>
@@ -121,6 +97,9 @@ export default ({
   },
   methods: {
     ...mapMutations(['changeSidebar'])
+  },
+  created(){
+    console.log(this.User)
   },
   computed: {
     ...mapState(['User']),

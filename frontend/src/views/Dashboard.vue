@@ -2,6 +2,63 @@
   <div class="mx-5">
     <MessageCardFixed :title="title" :type="messageType" :message="message" />
 
+    <div
+      :class="`modal ${
+        !openConfirm && 'opacity-0 pointer-events-none'
+      } z-50 fixed w-full h-full top-0 left-0 flex items-center justify-center`"
+    >
+      <div
+        class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"
+      ></div>
+
+      <div
+        class="modal-container bg-white w-11/12 md:max-w-xl mx-auto rounded shadow-lg z-50 overflow-y-auto"
+      >
+        <div class="modal-content text-center py-4 text-left px-6">
+          <div class="flex justify-between items-center text-center pb-3">
+            <p class="text-2xl font-bold text-center text-green-500">Solicitação de vinculo recebida!</p>
+            <div
+              class="modal-close cursor-pointer z-50"
+              @click="openConfirm = false"
+            >
+              <svg
+                class="fill-current text-gray-400"
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+              >
+                <path
+                  d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"
+                />
+              </svg>
+            </div>
+          </div>
+
+          <form @submit.prevent="">
+            <div class="flex-none md:flex md:space-x-4">
+                <p>Médico deseja se vincular a você.</p>
+            </div>
+
+            <div class="flex justify-end pt-2">
+              <button
+                type="button"
+                @click="openConfirm = false"
+                class="px-6 py-3 bg-gray-600 p-3 rounded-lg text-white hover:bg-gray-100 hover:text-green-500 mr-2"
+              >
+                Recusar
+              </button>
+              <button
+                class="px-6 py-3 bg-green-600 rounded-md text-white font-medium tracking-wide hover:bg-green-500"
+              >
+                Aceitar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
     <div class="flex-grow w-full px-6 pt-8 pb-2">
       <h1 class="text-2xl lg:text-5xl text-gray-800 lg:font-light mb-2">
         Perfil de usuário
@@ -407,7 +464,9 @@ export default {
       id: undefined,
 
       historic: [{}],
-      mode: false
+      mode: false,
+
+      openConfirm: false
     };
   },
   async created() {
@@ -415,9 +474,10 @@ export default {
     console.log(this.type)
     if (this.type == "M") {
 
-
     } else if (this.type == "P") {
-
+      setTimeout(() => {
+        this.openConfirm = true;
+      }, 3000)
     } else if (this.type == "E") {
 
     }
