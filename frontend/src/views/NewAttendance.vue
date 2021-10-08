@@ -111,7 +111,7 @@
                     v-model="attendance.admission"
                     type="date"
                     placeholder="Admissão"
-                    class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-600 focus:outline-none py-2 px-4"
+                    class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-500 focus:outline-none py-2 px-4"
                     required
                   />
                 </div>
@@ -129,7 +129,7 @@
                     v-model="attendance.release"
                     type="date"
                     placeholder="Alta"
-                    class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-600 focus:outline-none py-2 px-4"
+                    class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-500 focus:outline-none py-2 px-4"
                     required
                   />
                 </div>
@@ -148,7 +148,7 @@
                     placeholder="Notas"
                     v-model="attendance.notes"
                     rows="6"
-                    class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-600 focus:outline-none py-2 px-4"
+                    class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-500 focus:outline-none py-2 px-4"
                     required
                   >
                   </textarea>
@@ -171,7 +171,7 @@
                     v-model="anamnese.main_complaint"
                     type="text"
                     placeholder="Reclamação Principal"
-                    class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-600 focus:outline-none py-2 px-4"
+                    class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-500 focus:outline-none py-2 px-4"
                     required
                   />
                 </div>
@@ -191,7 +191,7 @@
                     v-model="anamnese.current_disease"
                     type="text"
                     placeholder="Doença Atual"
-                    class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-600 focus:outline-none py-2 px-4"
+                    class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-500 focus:outline-none py-2 px-4"
                     required
                   />
                 </div>
@@ -211,7 +211,7 @@
                     v-model="anamnese.health_history"
                     type="text"
                     placeholder="Histórico de Saúde"
-                    class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-600 focus:outline-none py-2 px-4"
+                    class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-500 focus:outline-none py-2 px-4"
                     required
                   />
                 </div>
@@ -231,7 +231,7 @@
                     v-model="anamnese.allergy"
                     type="text"
                     placeholder="Alergias"
-                    class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-600 focus:outline-none py-2 px-4"
+                    class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-500 focus:outline-none py-2 px-4"
                     required
                   />
                 </div>
@@ -251,7 +251,7 @@
                     v-model="anamnese.family_history"
                     type="text"
                     placeholder="Histórico Familiar"
-                    class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-600 focus:outline-none py-2 px-4"
+                    class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-500 focus:outline-none py-2 px-4"
                     required
                   />
                 </div>
@@ -259,7 +259,7 @@
 
               <div class="flex justify-end pt-2">
                 <button
-                  class="px-6 py-3 bg-green-600 rounded-md text-white font-medium tracking-wide hover:bg-green-700"
+                  class="px-6 py-3 bg-green-500 rounded-md text-white font-medium tracking-wide hover:bg-green-500"
                 >
                   Salvar
                 </button>
@@ -329,7 +329,7 @@ export default {
               "button",
               {
                 className:
-                  "py-2 mb-4 px-4 border rounded-md text-green-600 border border-green-600 bg-white hover:bg-green-600 hover:text-white mt-5",
+                  "py-2 mb-4 px-4 border rounded-md text-green-500 border border-green-500 bg-white hover:bg-green-500 hover:text-white mt-5",
                 onClick: () => {
                   this.patient = this.patients.filter(
                     (pat) => pat.id == row.cells[0].data
@@ -362,7 +362,7 @@ export default {
               "button",
               {
                 className:
-                  "py-2 mb-4 px-4 border rounded-md text-green-600 border border-green-600 bg-white hover:bg-green-600 hover:text-white mt-5",
+                  "py-2 mb-4 px-4 border rounded-md text-green-500 border border-green-500 bg-white hover:bg-green-500 hover:text-white mt-5",
                 onClick: () => {
                   this.doctor = this.doctors.filter(
                     (doc) => doc.id == row.cells[0].data

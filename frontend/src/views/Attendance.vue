@@ -15,7 +15,7 @@
       >
         <div class="modal-content py-4 text-left px-6">
           <div class="flex justify-between items-center pb-3">
-            <p class="text-2xl font-bold text-green-600">Apagar Atendimento?</p>
+            <p class="text-2xl font-bold text-green-500">Apagar Atendimento?</p>
             <div
               class="modal-close cursor-pointer z-50"
               @click="openDelete = false"
@@ -43,12 +43,12 @@
               <button
                 type="button"
                 @click="openDelete = false"
-                class="px-6 py-3 bg-transparent p-3 rounded-lg text-green-600 hover:bg-gray-100 hover:text-green-700 mr-2"
+                class="px-6 py-3 bg-transparent p-3 rounded-lg text-green-500 hover:bg-gray-100 hover:text-green-500 mr-2"
               >
                 Fechar
               </button>
               <button
-                class="px-6 py-3 bg-red-600 rounded-md text-white font-medium tracking-wide hover:bg-red-700"
+                class="px-6 py-3 bg-red-600 rounded-md text-white font-medium tracking-wide hover:bg-green-500"
               >
                 Apagar
               </button>
@@ -73,7 +73,7 @@
       >
         <div class="modal-content py-4 text-left px-6">
           <div class="flex justify-between items-center pb-3">
-            <p class="text-2xl font-bold text-green-600">
+            <p class="text-2xl font-bold text-green-500">
               Editar Atendimento
             </p>
             <div
@@ -110,7 +110,7 @@
                   v-model="editAttendance.admission"
                   type="date"
                   placeholder="Admissão"
-                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-600 focus:outline-none py-2 px-4"
+                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-500 focus:outline-none py-2 px-4"
                 />
               </div>
               <div class="w-full mb-4">
@@ -126,7 +126,7 @@
                   v-model="editAttendance.release"
                   type="date"
                   placeholder="Alta"
-                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-600 focus:outline-none py-2 px-4"
+                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-500 focus:outline-none py-2 px-4"
                 />
               </div>
             </div>
@@ -144,7 +144,7 @@
                   placeholder="Notas"
                   v-model="editAttendance.notes"
                   rows="6"
-                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-600 focus:outline-none py-2 px-4"
+                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-500 focus:outline-none py-2 px-4"
                   required>
 
                 </textarea>
@@ -165,7 +165,7 @@
                   v-model="editAnamnese.main_complaint"
                   type="text"
                   placeholder="Reclamação Principal"
-                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-600 focus:outline-none py-2 px-4"
+                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-500 focus:outline-none py-2 px-4"
                   required
                 />
               </div>
@@ -185,7 +185,7 @@
                   v-model="editAnamnese.current_disease"
                   type="text"
                   placeholder="Doença Atual"
-                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-600 focus:outline-none py-2 px-4"
+                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-500 focus:outline-none py-2 px-4"
                   required
                 />
               </div>
@@ -205,7 +205,7 @@
                   v-model="editAnamnese.health_history"
                   type="text"
                   placeholder="Histórico de Saúde"
-                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-600 focus:outline-none py-2 px-4"
+                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-500 focus:outline-none py-2 px-4"
                   required
                 />
               </div>
@@ -225,7 +225,7 @@
                   v-model="editAnamnese.allergy"
                   type="text"
                   placeholder="Alergias"
-                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-600 focus:outline-none py-2 px-4"
+                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-500 focus:outline-none py-2 px-4"
                   required
                 />
               </div>
@@ -245,7 +245,7 @@
                   v-model="editAnamnese.family_history"
                   type="text"
                   placeholder="Histórico Familiar"
-                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-600 focus:outline-none py-2 px-4"
+                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-500 focus:outline-none py-2 px-4"
                   required
                 />
               </div>
@@ -255,12 +255,12 @@
               <button
                 type="button"
                 @click="openEdit = false"
-                class="px-6 py-3 bg-transparent p-3 rounded-lg text-green-600 hover:bg-gray-100 hover:text-green-700 mr-2"
+                class="px-6 py-3 bg-transparent p-3 rounded-lg text-green-500 hover:bg-gray-100 hover:text-green-500 mr-2"
               >
                 Fechar
               </button>
               <button
-                class="px-6 py-3 bg-green-600 rounded-md text-white font-medium tracking-wide hover:bg-green-700"
+                class="px-6 py-3 bg-green-500 rounded-md text-white font-medium tracking-wide hover:bg-green-500"
               >
                 Atualizar
               </button>
@@ -305,7 +305,7 @@
               <p class="w-full inline-block mt-2"><strong>Histórico Familiar: </strong>{{ anamnese.family_history}}</p>
               <hr class="order-bottom border-gray-200 mt-6">
 
-              <button v-if="$store.state.User.user.type != 'P' && $store.state.User.user.type != 'S'" @click="openModalEdit()" class="py-2 w-full mb-1 px-4 border rounded-md text-green-600 border border-green-600 bg-white hover:bg-green-600 hover:text-white mt-5"> Editar </button>
+              <button v-if="$store.state.User.user.type != 'P' && $store.state.User.user.type != 'S'" @click="openModalEdit()" class="py-2 w-full mb-1 px-4 border rounded-md text-green-500 border border-green-500 bg-white hover:bg-green-500 hover:text-white mt-5"> Editar </button>
               <button v-if="$store.state.User.user.type == 'A'" @click="openDelete = true" class="py-2 w-full mb-4 px-4 border rounded-md text-white border border-red-600 bg-red-600 mt-1"> Excluir </button>
             </div>
           </div>

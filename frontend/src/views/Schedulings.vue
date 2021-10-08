@@ -15,7 +15,7 @@
       >
         <div class="modal-content py-4 text-left px-6">
           <div class="flex justify-between items-center pb-3">
-            <p class="text-2xl font-bold text-green-600">Editar Agendamento</p>
+            <p class="text-2xl font-bold text-green-500">Editar Agendamento</p>
             <div
               class="modal-close cursor-pointer z-50"
               @click="openEdit = false"
@@ -51,7 +51,7 @@
                   step="3600"
                   placeholder="Nome"
                   v-model="editScheduling.date"
-                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-600 focus:outline-none py-2 px-4"
+                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-500 focus:outline-none py-2 px-4"
                   required
                 />
               </div>
@@ -61,12 +61,12 @@
               <button
                 type="button"
                 @click="openEdit = false"
-                class="px-6 py-3 bg-transparent p-3 rounded-lg text-green-600 hover:bg-gray-100 hover:text-green-700 mr-2"
+                class="px-6 py-3 bg-transparent p-3 rounded-lg text-green-500 hover:bg-gray-100 hover:text-green-500 mr-2"
               >
                 Fechar
               </button>
               <button
-                class="px-6 py-3 bg-green-600 rounded-md text-white font-medium tracking-wide hover:bg-green-700"
+                class="px-6 py-3 bg-green-500 rounded-md text-white font-medium tracking-wide hover:bg-green-500"
               >
                 Atualizar
               </button>
@@ -90,7 +90,7 @@
       >
         <div class="modal-content py-4 text-left px-6">
           <div class="flex justify-between items-center pb-3">
-            <p class="text-2xl font-bold text-green-600">Cancelar Agendamento</p>
+            <p class="text-2xl font-bold text-green-500">Cancelar Agendamento</p>
             <div
               class="modal-close cursor-pointer z-50"
               @click="openCancel = false"
@@ -118,12 +118,12 @@
               <button
                 type="button"
                 @click="openCancel = false"
-                class="px-6 py-3 bg-transparent p-3 rounded-lg text-green-600 hover:bg-gray-100 hover:text-green-700 mr-2"
+                class="px-6 py-3 bg-transparent p-3 rounded-lg text-green-500 hover:bg-gray-100 hover:text-green-500 mr-2"
               >
                 Fechar
               </button>
               <button
-                class="px-6 py-3 bg-red-600 rounded-md text-white font-medium tracking-wide hover:bg-red-700"
+                class="px-6 py-3 bg-red-600 rounded-md text-white font-medium tracking-wide hover:bg-green-500"
               >
                 Cancelar
               </button>
@@ -230,7 +230,7 @@ export default {
               "button",
               {
                 className:
-                  "py-2 mb-4 px-4 border rounded-md text-green-600 border border-green-600 bg-white hover:bg-green-600 hover:text-white mt-5",
+                  "py-2 mb-4 px-4 border rounded-md text-green-500 border border-green-500 bg-white hover:bg-green-500 hover:text-white mt-5",
                 onClick: () => {
                   this.editScheduling = this.schedulings.filter((scheduling) =>
                     scheduling.id == row.cells[0].data ? scheduling : false
@@ -285,7 +285,7 @@ export default {
               "button",
               {
                 className:
-                  "py-2 mb-4 px-4 border rounded-md text-green-600 border border-green-600 bg-white hover:bg-green-600 hover:text-white mt-5",
+                  "py-2 mb-4 px-4 border rounded-md text-green-500 border border-green-500 bg-white hover:bg-green-500 hover:text-white mt-5",
                 onClick: () => {
                   this.editScheduling = this.schedulings.filter((scheduling) =>
                     scheduling.id == row.cells[0].data ? scheduling : false
@@ -340,7 +340,7 @@ export default {
               "button",
               {
                 className:
-                  "py-2 mb-4 px-4 border rounded-md text-green-600 border border-green-600 bg-white hover:bg-green-600 hover:text-white mt-5",
+                  "py-2 mb-4 px-4 border rounded-md text-green-500 border border-green-500 bg-white hover:bg-green-500 hover:text-white mt-5",
                 onClick: () => {
                   this.editScheduling = this.schedulings.filter((scheduling) =>
                     scheduling.id == row.cells[0].data ? scheduling : false

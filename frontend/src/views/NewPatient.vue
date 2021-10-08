@@ -24,7 +24,7 @@
                   v-model="patient.name"
                   type="text"
                   placeholder="Nome"
-                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-600 focus:outline-none py-2 px-4"
+                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-500 focus:outline-none py-2 px-4"
                   required
                 />
               </div>
@@ -41,7 +41,7 @@
                   v-model="patient.surname"
                   type="text"
                   placeholder="Sobrenome"
-                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-600 focus:outline-none py-2 px-4"
+                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-500 focus:outline-none py-2 px-4"
                   required
                 />
               </div>
@@ -60,7 +60,7 @@
                   placeholder="Email"
                   v-model="patient.email"
                   rows="6"
-                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-600 focus:outline-none py-2 px-4"
+                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-500 focus:outline-none py-2 px-4"
                   required
                   />
               </div>
@@ -80,7 +80,7 @@
                   v-model="patient.password"
                   type="password"
                   placeholder="Senha"
-                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-600 focus:outline-none py-2 px-4"
+                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-500 focus:outline-none py-2 px-4"
                   required
                 />
               </div>
@@ -100,7 +100,7 @@
                   v-model="patient.code"
                   type="text"
                   placeholder="Carteira"
-                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-600 focus:outline-none py-2 px-4"
+                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-500 focus:outline-none py-2 px-4"
                   required
                 />
               </div>
@@ -108,7 +108,7 @@
 
             <div class="flex justify-end pt-2">
               <button
-                class="px-6 w-full py-3 bg-green-600 rounded-md text-white font-medium tracking-wide hover:bg-green-700"
+                class="px-6 w-full py-3 bg-green-500 rounded-md text-white font-medium tracking-wide hover:bg-green-500"
               >
                 Cadastrar
               </button>

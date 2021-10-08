@@ -108,13 +108,13 @@
                   step="3600"
                   placeholder="Nome"
                   v-model="scheduling.date"
-                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-600 focus:outline-none py-2 px-4"
+                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-500 focus:border-green-500 focus:outline-none py-2 px-4"
                   required
                 />
               </div>
               <div class="flex justify-end pt-2">
                 <button
-                  class="px-6 py-3 w-full bg-green-600 rounded-md text-white font-medium tracking-wide hover:bg-green-700"
+                  class="px-6 py-3 w-full bg-green-500 rounded-md text-white font-medium tracking-wide hover:bg-green-500"
                 >
                   Salvar
                 </button>
@@ -184,7 +184,7 @@ export default {
               "button",
               {
                 className:
-                  "py-2 mb-4 px-4 border rounded-md text-green-600 border border-green-600 bg-white hover:bg-green-600 hover:text-white mt-5",
+                  "py-2 mb-4 px-4 border rounded-md text-green-500 border border-green-500 bg-white hover:bg-green-500 hover:text-white mt-5",
                 onClick: () => {
                   this.patient = this.patients.filter(
                     (pat) => pat.id == row.cells[0].data
@@ -217,7 +217,7 @@ export default {
               "button",
               {
                 className:
-                  "py-2 mb-4 px-4 border rounded-md text-green-600 border border-green-600 bg-white hover:bg-green-600 hover:text-white mt-5",
+                  "py-2 mb-4 px-4 border rounded-md text-green-500 border border-green-500 bg-white hover:bg-green-500 hover:text-white mt-5",
                 onClick: () => {
                   this.doctor = this.doctors.filter(
                     (doc) => doc.id == row.cells[0].data

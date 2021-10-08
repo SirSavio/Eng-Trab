@@ -67,7 +67,7 @@ export default {
               "button",
               {
                 className:
-                  "py-2 mb-4 px-4 border rounded-md text-green-600 border border-green-600 bg-white hover:bg-green-600 hover:text-white mt-5",
+                  "py-2 mb-4 px-4 border rounded-md text-green-500 border border-green-500 bg-white hover:bg-green-500 hover:text-white mt-5",
                 onClick: () => this.$router.push(`/atendimento/${row.cells[0].data}`)
               },
               "Detalhes"

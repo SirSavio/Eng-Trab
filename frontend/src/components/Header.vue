@@ -1,6 +1,6 @@
 <template>
   <header
-    class="flex justify-between items-center py-4 px-6 bg-white border-b-4 border-green-900"
+    class="flex justify-between items-center py-4 px-6 bg-white border-b-4 border-green-500"
   >
     <MessageCardFixed :type="type" :title="title" :message="message" />
     <div class="flex items-center">
@@ -16,7 +16,7 @@
       <div class="relative mx-2 lg:mx-4">
         <button
           @click="dropdownOpen = !dropdownOpen"
-          class="relative z-10 block h-8 w-8 rounded-full overflow-hidden shadow focus:outline-none bg-green-900 text-white transition duration-300 hover:bg-gray-500"
+          class="relative z-10 block h-8 w-8 rounded-full overflow-hidden shadow focus:outline-none bg-green-500 text-white transition duration-300 hover:bg-gray-500"
         >
           <i class="far fa-user-circle"></i>
         </button>
@@ -37,7 +37,7 @@
           <div>
             <a
               @click="log()"
-              class="block px-4 py-2 text-green-900 text-sm transition duration-300 hover:bg-green-900 hover:text-white"
+              class="block px-4 py-2 text-green-500 text-sm transition duration-300 hover:bg-green-500 hover:text-white"
               >Sair</a
             >
           </div>

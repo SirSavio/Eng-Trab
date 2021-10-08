@@ -11,13 +11,13 @@
               class="block text-gray-600 text-sm font-bold mb-2"
               for="email"
             >
-              E-mail
+              CPF
             </label>
             <input
               id="email"
-              name="email"
-              type="email"
-              placeholder="exemplo@email.com"
+              name="CPF"
+              type="text"
+              placeholder=""
               required
               autocomplete="false"
               v-model="email"
@@ -50,7 +50,7 @@
           <div class="mt-6">
             <button
               type="submit"
-              class="inline-flex justify-center items-center mb-10 transition duration-150 py-2 px-4 bg-green-500 hover:bg-green-800 text-white font-bold border-b-4 border-green-800 focus:outline-none rounded w-full"
+              class="inline-flex justify-center items-center mb-10 transition duration-150 py-2 px-4 bg-green-500 hover:bg-green-500 text-white font-bold border-b-4 border-green-500 focus:outline-none rounded w-full"
             >
               <svg
                 class="h-5 w-5 mr-2 text-white animate-spin"
@@ -111,11 +111,11 @@ export default {
     ...mapActions(["login"]),
     async log() {
       this.loading = true;
-      if (this.email == "medico@gmail.com" || this.email == "enfermeiro@gmail.com" || this.email == "paciente@gmail.com") {
+      if (this.email == "11111111111" || this.email == "22222222222" || this.email == "33333333333") {
         let data = {
-          email: this.email,
-          name: this.email == "medico@gamil.com" ? "Médico" : this.email == "enfermeiro@gmail.com" ? "Enfermeiro" : "Paciente",
-          type: this.email == "medico@gmail.com" ? "M" : this.email == "enfermeiro@gmail.com" ? "E" : "P"
+          email: this.email == "11111111111" ? "medico@gmail.com" : this.email == "22222222222" ? "enfermeiro@gmail.com" : "paciente@gmail.com",
+          name: this.email == "11111111111" ? "Médico" : this.email == "22222222222" ? "Enfermeiro" : "Paciente",
+          type: this.email == "11111111111" ? "M" : this.email == "22222222222" ? "E" : "P"
         }
         this.login(data);
         this.$router.push("/painel");
