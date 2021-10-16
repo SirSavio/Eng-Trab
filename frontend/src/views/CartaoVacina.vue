@@ -121,7 +121,7 @@
 
             <div class="flex justify-center pt-2">
               <button
-              @click="openVacinar = false"
+              @click="abrirMensagem()"
                 class="
                   px-6
                   py-3
@@ -395,6 +395,10 @@ export default {
         2
       )}`;
     },
+    abrirMensagem(){
+        this.openVacinar = false;
+        this.setMessage('success', 'Sucesso!', 'Vacina cadastrada com sucesso!', 3000)
+    }
   },
   watch: {
     openConfirm(newValue, oldValue) {
