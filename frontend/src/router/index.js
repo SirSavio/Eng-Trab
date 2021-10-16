@@ -4,6 +4,7 @@ import Login from '../views/Login.vue';
 import Dashboard from '../views/Dashboard.vue'
 import NewAttendance from '../views/NewAttendance.vue'
 import VincularPaciente from '../views/VincularPaciente.vue'
+import CartaoVacina from '../views/CartaoVacina.vue'
 
 import store from '../store';
 
@@ -32,6 +33,12 @@ const routes = [
     path: '/vincular-paciente',
     name: 'VincularPaciente',
     component: VincularPaciente,
+    meta: {layout: 'default'}
+  },
+  {
+    path: '/cartao-vacina',
+    name: 'CartaoVacina',
+    component: CartaoVacina,
     meta: {layout: 'default'}
   }
 ]
