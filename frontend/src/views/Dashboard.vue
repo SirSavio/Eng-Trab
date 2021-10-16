@@ -12,11 +12,23 @@
       ></div>
 
       <div
-        class="modal-container bg-white w-11/12 md:max-w-xl mx-auto rounded shadow-lg z-50 overflow-y-auto"
+        class="
+          modal-container
+          bg-white
+          w-11/12
+          md:max-w-xl
+          mx-auto
+          rounded
+          shadow-lg
+          z-50
+          overflow-y-auto
+        "
       >
         <div class="modal-content text-center py-4 text-left px-6">
           <div class="flex justify-between items-center text-center pb-3">
-            <p class="text-2xl font-bold text-center text-green-500">Solicitação de vinculo recebida!</p>
+            <p class="text-2xl font-bold text-center text-green-500">
+              Solicitação de vinculo recebida!
+            </p>
             <div
               class="modal-close cursor-pointer z-50"
               @click="openConfirm = false"
@@ -37,19 +49,37 @@
 
           <form @submit.prevent="">
             <div class="flex-none md:flex md:space-x-4">
-                <p>Médico deseja se vincular a você.</p>
+              <p>Médico deseja se vincular a você.</p>
             </div>
 
             <div class="flex justify-end pt-2">
               <button
                 type="button"
                 @click="openConfirm = false"
-                class="px-6 py-3 bg-gray-600 p-3 rounded-lg text-white hover:bg-gray-100 hover:text-green-500 mr-2"
+                class="
+                  px-6
+                  py-3
+                  bg-gray-600
+                  p-3
+                  rounded-lg
+                  text-white
+                  hover:bg-gray-100 hover:text-green-500
+                  mr-2
+                "
               >
                 Recusar
               </button>
               <button
-                class="px-6 py-3 bg-green-600 rounded-md text-white font-medium tracking-wide hover:bg-green-500"
+                class="
+                  px-6
+                  py-3
+                  bg-green-600
+                  rounded-md
+                  text-white
+                  font-medium
+                  tracking-wide
+                  hover:bg-green-500
+                "
               >
                 Aceitar
               </button>
@@ -261,12 +291,9 @@
                   "
                   disabled
                 >
-                <option>
-                Masculinho
-                </option>
-                <option>
-                Feminino
-                </option></select>
+                  <option>Masculinho</option>
+                  <option>Feminino</option>
+                </select>
               </div>
               <div class="w-full md:w-1/2 mb-4">
                 <label
@@ -327,111 +354,133 @@
               </button>
             </div>
           </form>
-      </div>
-      <div class="w-full lg:w-1/3 bg-white mt-4 rounded-lg p-6">
-          <h4 class="text-lg lg:text-xl text-gray-800 mb-4">Histórico de Consultas</h4>
+        </div>
+        <div v-if="$store.state.User.user.type != 'E'" class="w-full lg:w-1/3 bg-white mt-4 rounded-lg p-6">
+          <h4 class="text-lg lg:text-xl text-gray-800 mb-4">
+            Histórico de Consultas
+          </h4>
           <div class="overflow-y-auto h-80">
             <template>
               <table class="table-auto w-full">
-  <thead>
-    <tr>
-      <th class="px-4 py-2">^ Data v</th>
-      <th class="px-4 py-2">Médico</th>
-      <th class="px-4 py-2">+Detalhes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr class="bg-gray-100">
-      <td class="border px-4 py-2">12/02/2020</td>
-      <td class="border px-4 py-2">Médico</td>
-      <td class="border px-4 py-2"><button type="button"
-                class="
-                  transition
-                  duration-150
-                  py-2
-                  px-4
-                  bg-green-500
-                  hover:bg-green-500
-                  text-white
-                  font-bold
-                  border-b-4 border-green-500
-                  focus:outline-none
-                  rounded
-                  w-full
-                  mt-6
-                ">
-                Ver detalhes</button></td>
-    </tr>
-    <tr class="bg-gray-100">
-      <td class="border px-4 py-2">12/02/2020</td>
-      <td class="border px-4 py-2">Médico</td>
-      <td class="border px-4 py-2"><button type="button"
-                class="
-                  transition
-                  duration-150
-                  py-2
-                  px-4
-                  bg-green-500
-                  hover:bg-green-500
-                  text-white
-                  font-bold
-                  border-b-4 border-green-500
-                  focus:outline-none
-                  rounded
-                  w-full
-                  mt-6
-                ">
-                Ver detalhes</button></td>
-    </tr>
-    <tr class="bg-gray-100">
-      <td class="border px-4 py-2">12/02/2020</td>
-      <td class="border px-4 py-2">Médico</td>
-      <td class="border px-4 py-2"><button type="button"
-                class="
-                  transition
-                  duration-150
-                  py-2
-                  px-4
-                  bg-green-500
-                  hover:bg-green-500
-                  text-white
-                  font-bold
-                  border-b-4 border-green-500
-                  focus:outline-none
-                  rounded
-                  w-full
-                  mt-6
-                ">
-                Ver detalhes</button></td>
-    </tr>
-    <tr class="bg-gray-100">
-      <td class="border px-4 py-2">12/02/2020</td>
-      <td class="border px-4 py-2">Médico</td>
-      <td class="border px-4 py-2"><button type="button"
-                class="
-                  transition
-                  duration-150
-                  py-2
-                  px-4
-                  bg-green-500
-                  hover:bg-green-500
-                  text-white
-                  font-bold
-                  border-b-4 border-green-500
-                  focus:outline-none
-                  rounded
-                  w-full
-                  mt-6
-                ">
-                Ver detalhes</button></td>
-    </tr>
-  </tbody>
-</table>
+                <thead>
+                  <tr>
+                    <th class="px-4 py-2">^ Data v</th>
+                    <th class="px-4 py-2">Médico</th>
+                    <th class="px-4 py-2">+Detalhes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="bg-gray-100">
+                    <td class="border px-4 py-2">12/02/2020</td>
+                    <td class="border px-4 py-2">Médico</td>
+                    <td class="border px-4 py-2">
+                      <button
+                        type="button"
+                        class="
+                          transition
+                          duration-150
+                          py-2
+                          px-4
+                          bg-green-500
+                          hover:bg-green-500
+                          text-white
+                          font-bold
+                          border-b-4 border-green-500
+                          focus:outline-none
+                          rounded
+                          w-full
+                          mt-6
+                        "
+                      >
+                        Ver detalhes
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="bg-gray-100">
+                    <td class="border px-4 py-2">12/02/2020</td>
+                    <td class="border px-4 py-2">Médico</td>
+                    <td class="border px-4 py-2">
+                      <button
+                        type="button"
+                        class="
+                          transition
+                          duration-150
+                          py-2
+                          px-4
+                          bg-green-500
+                          hover:bg-green-500
+                          text-white
+                          font-bold
+                          border-b-4 border-green-500
+                          focus:outline-none
+                          rounded
+                          w-full
+                          mt-6
+                        "
+                      >
+                        Ver detalhes
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="bg-gray-100">
+                    <td class="border px-4 py-2">12/02/2020</td>
+                    <td class="border px-4 py-2">Médico</td>
+                    <td class="border px-4 py-2">
+                      <button
+                        type="button"
+                        class="
+                          transition
+                          duration-150
+                          py-2
+                          px-4
+                          bg-green-500
+                          hover:bg-green-500
+                          text-white
+                          font-bold
+                          border-b-4 border-green-500
+                          focus:outline-none
+                          rounded
+                          w-full
+                          mt-6
+                        "
+                      >
+                        Ver detalhes
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="bg-gray-100">
+                    <td class="border px-4 py-2">12/02/2020</td>
+                    <td class="border px-4 py-2">Médico</td>
+                    <td class="border px-4 py-2">
+                      <button
+                        type="button"
+                        class="
+                          transition
+                          duration-150
+                          py-2
+                          px-4
+                          bg-green-500
+                          hover:bg-green-500
+                          text-white
+                          font-bold
+                          border-b-4 border-green-500
+                          focus:outline-none
+                          rounded
+                          w-full
+                          mt-6
+                        "
+                      >
+                        Ver detalhes
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </template>
           </div>
         </div>
+      </div>
     </div>
-</div>
   </div>
 </template>
 
@@ -466,20 +515,18 @@ export default {
       historic: [{}],
       mode: false,
 
-      openConfirm: false
+      openConfirm: false,
     };
   },
   async created() {
     this.type = this.$store.state.User.user.type;
-    console.log(this.type)
+    console.log(this.type);
     if (this.type == "M") {
-
     } else if (this.type == "P") {
       setTimeout(() => {
         this.openConfirm = true;
-      }, 3000)
+      }, 3000);
     } else if (this.type == "E") {
-
     }
   },
   methods: {
@@ -495,30 +542,30 @@ export default {
         this.openEdit = false;
       }
     },
-    async updateScheduling(id){
+    async updateScheduling(id) {
       let statusAux = this.editScheduling.status;
       delete this.editScheduling.status;
 
       const result = await Scheduling.update(this.editScheduling, id);
-      if(result.success){
+      if (result.success) {
         this.schedulings = this.schedulings.map((sche) => {
-          if(sche.id == id){
-            sche = {...result.scheduling, doctor: this.editScheduling.doctor};
+          if (sche.id == id) {
+            sche = { ...result.scheduling, doctor: this.editScheduling.doctor };
             sche.date = new Date(sche.date).toLocaleString();
-            sche.status = statusAux
+            sche.status = statusAux;
           }
           return sche;
         });
         this.openEditScheduling = false;
         this.setMessage("success", "Sucesso!", "Agendamento atualizado", 3000);
-      }else this.setMessage("error", "Erro!", result.message, 3000);
+      } else this.setMessage("error", "Erro!", result.message, 3000);
     },
-    async cancelScheduling(id){
-      const result = await Scheduling.update({status: 'C'}, id);
-      if(result.success){
+    async cancelScheduling(id) {
+      const result = await Scheduling.update({ status: "C" }, id);
+      if (result.success) {
         this.schedulings = this.schedulings.map((sche) => {
-          if(sche.id == id){
-            sche = {...result.scheduling, doctor: sche.doctor};
+          if (sche.id == id) {
+            sche = { ...result.scheduling, doctor: sche.doctor };
             sche.status = status[sche.status];
             sche.date = new Date(sche.date).toLocaleString();
           }
@@ -526,7 +573,7 @@ export default {
         });
         this.setMessage("success", "Sucesso!", "Agendamento cancelado!", 3000);
         this.openCancel = false;
-      }else this.setMessage("error", "Erro!", result.message, 3000);
+      } else this.setMessage("error", "Erro!", result.message, 3000);
     },
     setMessage(type, title, message, time) {
       this.message = message;
