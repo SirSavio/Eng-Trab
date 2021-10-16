@@ -164,7 +164,12 @@
       >
         Imprimir Cartão
       </button>
-      <h1 class="text-2xl text-gray-800 mb-2">
+      <div class="inline float-right">
+          <img width="150px" class="" src="https://s2.glbimg.com/72tNul7UJ6vt3-Ih17Yply9eQHw=/0x0:3000x3000/1000x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_b58693ed41d04a39826739159bf600a0/internal_photos/bs/2020/V/F/EAhW2ARmmeH3UsTtZnOA/frame.png"/>
+          <p class="text-center" >Gerar QR Code</p>
+      </div>
+      
+      <h1 class="text-2xl mt-10 text-gray-800 mb-2">
         Cartão de Vacinação de Paciente
       </h1>
       <div class="flex-none lg:flex w-full lg:space-x-4 mb-12">
@@ -280,7 +285,7 @@
             <tbody v-else>
               <tr class="bg-white text-center">
                 <td class="border px-4 py-2">Astrazeneca Covid-19</td>
-                <td class="border px-4 py-2">
+                <td v-if="$store.state.User.user.type != 'P'" class="border px-4 py-2">
                   <button
                     type="button"
                     @click="openVacinar = true"
@@ -305,7 +310,7 @@
               </tr>
               <tr class="bg-white text-center">
                 <td class="border px-4 py-2">Antirrábica</td>
-                <td class="border px-4 py-2">
+                <td v-if="$store.state.User.user.type != 'P'" class="border px-4 py-2">
                   <button
                     type="button"
                     @click="openVacinar = true"
@@ -374,9 +379,6 @@ export default {
   async created() {
     this.type = this.$store.state.User.user.type;
     console.log(this.type);
-    if (this.type != "M") {
-      this.$router.push("/painel");
-    }
   },
   methods: {
     setMessage(type, title, message, time) {
