@@ -164,7 +164,7 @@
       >
         Imprimir Cartão
       </button>
-      <div class="inline float-right">
+      <div v-if="$store.state.User.user.type == 'P'" class="inline float-right">
           <img width="150px" class="" src="https://s2.glbimg.com/72tNul7UJ6vt3-Ih17Yply9eQHw=/0x0:3000x3000/1000x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_b58693ed41d04a39826739159bf600a0/internal_photos/bs/2020/V/F/EAhW2ARmmeH3UsTtZnOA/frame.png"/>
           <p class="text-center" >Gerar QR Code</p>
       </div>
