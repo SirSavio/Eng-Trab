@@ -1,5 +1,5 @@
 <template>
-  <header
+  <!-- <header
     class="flex justify-between items-center py-4 px-6 bg-white border-b-4 border-green-500"
   >
     <MessageCardFixed :type="type" :title="title" :message="message" />
@@ -44,7 +44,7 @@
         </div>
       </div>
     </div>
-  </header>
+  </header> -->
 </template>
 
 <style scoped>
