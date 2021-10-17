@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Login from '../views/Login.vue';
+import Appointment from '../views/Appointment.vue';
 import Dashboard from '../views/Dashboard.vue'
-import NewAttendance from '../views/NewAttendance.vue'
 import VincularPaciente from '../views/VincularPaciente.vue'
 
 import store from '../store';
@@ -23,9 +23,9 @@ const routes = [
     meta: {layout: 'default'}
   },
   {
-    path: '/novo-atendimento/:id',
-    name: 'NovoAtendimento',
-    component: NewAttendance,
+    path: '/consulta',
+    name: 'ConsultaMedica',
+    component: Appointment,
     meta: {layout: 'default'}
   },
   {

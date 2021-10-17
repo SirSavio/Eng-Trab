@@ -7,7 +7,7 @@
         </h4>
         <div class="text-gray-500">
           <router-link
-            class="py-2 mb-4 px-4 border rounded-md border border-green-500 bg-white bg-green-500 text-white mt-5 hover:bg-green-500"
+            class="py-2 mb-4 px-4 border rounded-md border-green-500 bg-white bg-green-500 text-white mt-5 hover:bg-green-500"
             :to="{ path: path }"
           >
             {{button}}

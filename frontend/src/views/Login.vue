@@ -3,7 +3,7 @@
     <div class="flex justify-center items-center w-auto top-0 object-center h-screen px-6">
       <div class="p-6 max-w-sm w-full bg-white shadow-lg rounded-md my-10">
         <div class="flex justify-center items-center">
-          <span class="text-green-500 font-semibold text-2xl">MedYes</span>
+          <span class="text-green-500 font-semibold text-2xl">Saúde +</span>
         </div>
         <form class="mt-4" @submit.prevent="log()">
           <div class="mb-4 mt-10">
