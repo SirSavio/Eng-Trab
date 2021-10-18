@@ -1,5 +1,6 @@
 <template>
   <div class="mx-5">
+    <!-- Modal Cancelar Consulta -->
     <div
       :class="
         `modal ${!openCancel &&
@@ -62,9 +63,161 @@
         </div>
       </div>
     </div>
-    <h1 class="text-gray-700 text-3xl font-medium my-8">
-      Consulta Médica
-    </h1>
+    <!-- Modal Especificação Remédio -->
+    <div
+      :class="
+        `modal ${!openMedicineEspec &&
+          'opacity-0 pointer-events-none'} z-50 fixed w-full h-full top-0 left-0 flex items-center justify-center`
+      "
+    >
+      <div
+        class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"
+      ></div>
+
+      <div
+        class="modal-container bg-white w-8/12 mx-auto rounded shadow-lg z-50 overflow-y-auto"
+      >
+        <div class="modal-content py-4 text-left px-6">
+          <div class="flex pb-3">
+            <div
+              class="ml-auto modal-close cursor-pointer z-50"
+              @click="openMedicineEspec = false"
+            >
+              <svg
+                class="fill-current text-gray-400"
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+              >
+                <path
+                  d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"
+                />
+              </svg>
+            </div>
+          </div>
+          <p class="mt-4 mb-8">
+            Adicionar detalhes sobre o uso do medicamento
+          </p>
+          <form @submit.prevent="addEspecification">
+            <div class="md:flex md:space-x-4">
+              <div class="w-full mb-4">
+                <label
+                  for="qtd"
+                  class="mb-1 text-xs font-bold sm:text-sm tracking-wide text-gray-600"
+                >
+                  Quantidade por dose
+                </label>
+                <input
+                  id="qtd"
+                  name="qtd"
+                  v-model="especification.qtd"
+                  type="text"
+                  placeholder="2 comprimidos, 5ml, etc."
+                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-600 focus:border-green-500 focus:outline-none py-2 px-4"
+                  required
+                />
+              </div>
+              <div class="w-full mb-4">
+                <label
+                  for="interval"
+                  class="mb-1 text-xs font-bold sm:text-sm tracking-wide text-gray-600"
+                >
+                  Intervalo entre doses
+                </label>
+                <input
+                  id="interval"
+                  name="interval"
+                  v-model="especification.interval"
+                  type="text"
+                  placeholder="6 em 6 horas"
+                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-600 focus:border-green-500 focus:outline-none py-2 px-4"
+                  required
+                />
+              </div>
+              <div class="w-full mb-4">
+                <label
+                  for="period"
+                  class="mb-1 text-xs font-bold sm:text-sm tracking-wide text-gray-600"
+                >
+                  Período de uso
+                </label>
+                <input
+                  id="period"
+                  name="period"
+                  v-model="especification.period"
+                  type="text"
+                  placeholder="7 dias"
+                  class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-600 focus:border-green-500 focus:outline-none py-2 px-4"
+                  required
+                />
+              </div>
+            </div>
+            <div class="w-full mb-4">
+              <label
+                for="details"
+                class="mb-1 text-xs font-bold sm:text-sm tracking-wide text-gray-600"
+              >
+                Informações complementares
+              </label>
+              <textarea
+                id="details"
+                name="details"
+                v-model="especification.details"
+                type="text"
+                class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-600 focus:border-green-500 focus:outline-none py-2 px-4"
+                rows="8"
+                style="resize: none"
+              />
+            </div>
+            <div class="flex justify-center">
+              <button
+                class=" transition
+                  duration-150
+                  my-6
+                  px-16
+                  py-1
+
+                  bg-green-500
+                  hover:bg-green-500
+                  text-white
+                  font-semibold
+                  border-b-4 border-green-500
+                  focus:outline-none
+                  rounded
+                  mt-8"
+              >
+                Adicionar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-between">
+      <h1 class="text-gray-700 text-3xl font-medium my-8">
+        Consulta Médica
+      </h1>
+      <router-link
+        class=" 
+        transition
+                  duration-150
+                  h-8
+                  my-auto
+                  px-16
+                  py-1
+                  bg-green-500
+                  hover:bg-green-500
+                  text-white
+                  font-semibold
+                  border-b-4 border-green-500
+                  focus:outline-none
+                  rounded"
+        to="/historico"
+      >
+        Visualizar histórico médico
+      </router-link>
+    </div>
     <form @submit.prevent="submitForm">
       <div v-if="isStepOne" class="container mt-8">
         <div class="w-full mb-8">
@@ -284,19 +437,18 @@
         <div class="flex justify-center space-x-12">
           <button
             class="
-           transition
-                  duration-150
-                  my-6
-                  px-16
-                  py-1
-
-                  bg-gray-600
-                  hover:bg-gray-600
-                  text-white
-                  font-semibold
-                  border-b-4 border-gray-600
-                  focus:outline-none
-                  rounded"
+            transition
+            duration-150
+            my-6
+            px-16
+            py-1
+            bg-gray-600
+            hover:bg-gray-600
+            text-white
+            font-semibold
+            border-b-4 border-gray-600
+            focus:outline-none
+            rounded"
             type="button"
             @click="openCancel = true"
           >
@@ -386,18 +538,20 @@
                     Nome do Exame
                   </label>
                   <input
-                    list="browsers"
-                    name="browser"
-                    id="browser"
+                    list="exams"
+                    name="exam"
+                    id="exam"
+                    v-model="exam"
                     placeholder="Digite o nome do exame aqui"
                     class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-600 focus:border-green-500 focus:outline-none py-2 px-4"
                   />
-                  <datalist id="browsers">
-                    <option value="Edge"> </option>
-                    <option value="Firefox"> </option>
-                    <option value="Chrome"> </option>
-                    <option value="Opera"> </option>
-                    <option value="Safari"> </option>
+                  <datalist id="exams">
+                    <option
+                      v-for="e in availableExams"
+                      :key="e.id"
+                      :data-value="e.id"
+                      >{{ e.name }}</option
+                    >
                   </datalist>
                 </div>
                 <button
@@ -413,6 +567,7 @@
                   focus:outline-none
                   rounded"
                   type="button"
+                  @click="addExam"
                 >
                   +Adicionar
                 </button>
@@ -420,24 +575,28 @@
               <div class="h-48 overflow-y-auto mb-4">
                 <ul v-if="exams.length">
                   <li v-for="(e, i) in exams" :key="i">
-                    <span>{{ e }}</span>
-                    <button
-                      class=" transition
-                      duration-150
-                      my-6
-                      p-1
-                      bg-red-500
-                      hover:bg-red-500
-                      text-white
-                      font-semibold
-                      border-b-4 border-red-500
-                      focus:outline-none
-                      rounded"
-                      @click="removeExam(i)"
-                      type="button"
-                    >
-                      Remover
-                    </button>
+                    <div class="flex my-2">
+                      <span class="truncate">{{ e.name }}</span>
+                      <button
+                        class=" transition
+                        duration-150
+                        ml-auto
+                        align-self-middle
+                        p-1
+                        bg-red-500
+                        hover:bg-red-500
+                        text-white
+                        font-semibold
+                        border-b-4 border-red-500
+                        focus:outline-none
+                        rounded"
+                        @click="removeExam(i)"
+                        type="button"
+                      >
+                        Remover
+                      </button>
+                    </div>
+                    <hr />
                   </li>
                 </ul>
                 <p
@@ -473,6 +632,7 @@
                   list="medicines"
                   name="medicine"
                   id="medicine"
+                  v-model="medicine"
                   placeholder="Informe o nome do remedio que deseja receitar"
                   class="text-sm sm:text-sm w-full border rounded text-gray-800 placeholder-gray-600 focus:border-green-500 focus:outline-none py-2 px-4"
                 />
@@ -498,6 +658,7 @@
                   focus:outline-none
                   rounded"
                 type="button"
+                @click="addMedicine"
               >
                 +Adicionar
               </button>
@@ -505,24 +666,51 @@
             <div class="h-48 overflow-y-auto mb-4">
               <ul v-if="medicines.length">
                 <li v-for="(m, i) in medicines" :key="i">
-                  <span>{{ m }}</span>
-                  <button
-                    class=" transition
-                    duration-150
-                    my-6
-                    p-1
-                    bg-red-500
-                    hover:bg-red-500
-                    text-white
-                    font-semibold
-                    border-b-4 border-red-500
-                    focus:outline-none
-                    rounded"
-                    @click="removeMedicine(i)"
-                    type="button"
-                  >
-                    Remover
-                  </button>
+                  <div class="flex my-2">
+                    <span class="truncate">{{ m.name }}</span>
+                    <button
+                      class=" transition
+                        duration-150
+                        ml-auto
+                        align-self-middle
+                        p-1
+                        bg-green-500
+                        hover:bg-green-500
+                        text-white
+                        font-semibold
+                        border-b-4 border-green-500
+                        focus:outline-none
+                        rounded"
+                      type="button"
+                      @click="openModalEspecification(i)"
+                      :disabled="m.especification"
+                    >
+                      {{
+                        m.especification
+                          ? "Especificação Adicionada"
+                          : "Adicionar especificação"
+                      }}
+                    </button>
+                    <button
+                      class=" transition
+                        duration-150
+                        ml-2
+                        align-self-middle
+                        p-1
+                        bg-red-500
+                        hover:bg-red-500
+                        text-white
+                        font-semibold
+                        border-b-4 border-red-500
+                        focus:outline-none
+                        rounded"
+                      @click="removeMedicine(i)"
+                      type="button"
+                    >
+                      Remover
+                    </button>
+                  </div>
+                  <hr />
                 </li>
               </ul>
               <p
@@ -579,17 +767,17 @@
           </button>
           <button
             class=" transition
-                  duration-150
-                  mt-6
-                  px-16
-                  py-1
-                  bg-green-500
-                  hover:bg-green-500
-                  text-white
-                  font-semibold
-                  border-b-4 border-green-500
-                  focus:outline-none
-                  rounded"
+            duration-150
+            mt-6
+            px-16
+            py-1
+            bg-green-500
+            hover:bg-green-500
+            text-white
+            font-semibold
+            border-b-4 border-green-500
+            focus:outline-none
+            rounded"
             type="submit"
           >
             Finalizar
@@ -622,23 +810,23 @@ export default {
       medicalCertificate: {},
 
       availableExams: [
-        { id: 1, name: "" },
-        { id: 2, name: "" },
-        { id: 3, name: "" },
-        { id: 4, name: "" },
-        { id: 5, name: "" },
-        { id: 6, name: "" },
-        { id: 7, name: "" },
-        { id: 8, name: "" },
-        { id: 9, name: "" },
-        { id: 10, name: "" },
-        { id: 11, name: "" },
-        { id: 12, name: "" },
-        { id: 13, name: "" },
-        { id: 14, name: "" },
-        { id: 15, name: "" },
+        { id: 1, name: "A" },
+        { id: 2, name: "B" },
+        { id: 3, name: "C" },
+        { id: 4, name: "D" },
+        { id: 5, name: "E" },
+        { id: 6, name: "F" },
+        { id: 7, name: "G" },
+        { id: 8, name: "H" },
+        { id: 9, name: "I" },
+        { id: 10, name: "J" },
+        { id: 11, name: "K" },
+        { id: 12, name: "L" },
+        { id: 13, name: "M" },
+        { id: 14, name: "N" },
+        { id: 15, name: "O" },
       ],
-
+      exam: "",
       exams: [],
 
       availableMedicines: [
@@ -658,9 +846,12 @@ export default {
         { id: 14, name: "Ofloxacino" },
         { id: 15, name: "Teofilina" },
       ],
-
+      medicine: "",
       medicines: [],
+      medicineSelected: -1,
       medicinesComplement: "",
+
+      especification: {},
 
       isStepOne: true,
       openCancel: false,
@@ -692,18 +883,62 @@ export default {
         this.$refs.annex.value = null;
       }
     },
-    addExam() {},
-    addMedicine() {},
+    addExam() {
+      if (this.exam) {
+        let [exam] = this.availableExams.filter((ae) => ae.name === this.exam);
+
+        if (exam) {
+          this.exams.push({ id: exam.id, name: exam.name });
+          this.exam = "";
+        } else console.log("não achou");
+      }
+    },
+    addMedicine() {
+      if (this.medicine) {
+        let [medicine] = this.availableMedicines.filter(
+          (am) => am.name === this.medicine
+        );
+
+        if (medicine) {
+          this.medicines.push({ id: medicine.id, name: medicine.name });
+          this.medicine = "";
+        } else console.log("não achou");
+      }
+    },
+    addEspecification() {
+      if (
+        this.especification.period &&
+        this.especification.interval &&
+        this.especification.qtd
+      ) {
+        this.medicines[this.medicineSelected].especification = {
+          ...this.especification,
+        };
+
+        this.openMedicineEspec = false;
+        this.especification = {};
+      }
+      // Limpa os campos
+      // Mensagem de que foi adicionado
+    },
     removeSymptom(index) {
       this.symptoms.splice(index, 1);
     },
     removeAnnex(index) {
       this.annexes.splice(index, 1);
     },
-    removeExam(index) {},
-    removeMedicine(index) {},
+    removeExam(index) {
+      this.exams.splice(index, 1);
+    },
+    removeMedicine(index) {
+      this.medicines.splice(index, 1);
+    },
     toggleStep() {
       this.isStepOne = !this.isStepOne;
+    },
+    openModalEspecification(index) {
+      this.medicineSelected = index;
+      this.openMedicineEspec = true;
     },
     submitForm() {
       console.log("Ação de persistencia!");
@@ -713,8 +948,7 @@ export default {
   created() {
     const user = this.$store.state.User.user;
 
-    if (user === "P" || user === "E")
-      return this.$router.push("/painel");
+    if (user === "P" || user === "E") return this.$router.push("/painel");
   },
 };
 </script>
