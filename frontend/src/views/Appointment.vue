@@ -515,12 +515,14 @@
                   style="resize: none"
                 />
               </div>
-              <button
-                class="px-6 w-full py-3 bg-green-500 rounded-md text-white font-medium tracking-wide hover:bg-green-500"
-                type="button"
-              >
-                Gerar atestado
-              </button>
+              <a href="/fake.pdf" :download="'Atestado de '+user.name">
+                <button
+                  class="px-6 w-full py-3 bg-green-500 rounded-md text-white font-medium tracking-wide hover:bg-green-500"
+                  type="button"
+                >
+                  Gerar atestado
+                </button>
+              </a>
             </div>
           </div>
 
@@ -606,12 +608,14 @@
                   Você ainda não adicionou exames!
                 </p>
               </div>
-              <button
-                class="px-6 w-full py-3 bg-green-500 rounded-md text-white font-medium tracking-wide hover:bg-green-500"
-                type="button"
-              >
-                Gerar pedidos de exame
-              </button>
+              <a href="/fake.pdf" :download="'Exames de ' + user.name">
+                <button
+                  class="px-6 w-full py-3 bg-green-500 rounded-md text-white font-medium tracking-wide hover:bg-green-500"
+                  type="button"
+                >
+                  Gerar pedidos de exame
+                </button>
+              </a>
             </div>
           </div>
         </div>
@@ -737,12 +741,14 @@
                 style="resize: none"
               />
             </div>
-            <button
-              class="px-6 w-full py-3 bg-green-500 rounded-md text-white font-medium tracking-wide hover:bg-green-500"
-              type="button"
-            >
-              Gerar receitas
-            </button>
+            <a href="/fake.pdf" :download="'Receitas de '+ user.name">
+              <button
+                class="px-6 w-full py-3 bg-green-500 rounded-md text-white font-medium tracking-wide hover:bg-green-500"
+                type="button"
+              >
+                Gerar receitas
+              </button>
+            </a>
           </div>
         </div>
         <div class="flex justify-center space-x-12">
