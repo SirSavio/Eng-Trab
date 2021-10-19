@@ -1,5 +1,6 @@
 <template>
   <div class="mx-5">
+    <MessageCardFixed :title="title" :type="messageType" :message="message" />
     <!-- Modal Cancelar Consulta -->
     <div
       :class="
@@ -316,7 +317,6 @@
                   focus:outline-none
                   rounded"
                   @click="addSymptom"
-                  :disabled="!symptom.length"
                   type="button"
                 >
                   +Adicionar
@@ -797,6 +797,11 @@ export default {
   },
   data() {
     return {
+      message: "",
+      messageType: "none",
+      title: "",
+      type: "",
+
       user: {
         name: "Erick Lima",
         gender: "M",
@@ -867,10 +872,25 @@ export default {
     },
   },
   methods: {
+    setMessage(type, title, message, time) {
+      this.message = message;
+      this.title = title;
+      this.messageType = type;
+      setInterval(() => {
+        this.messageType = "none";
+      }, time);
+    },
     addSymptom() {
       if (this.symptom) {
         this.symptoms.push(this.symptom);
         this.symptom = "";
+      } else {
+        this.setMessage(
+          "warning",
+          "Sintoma",
+          "Informe o sintoma para que seja adicionado!",
+          4000
+        );
       }
     },
     addAnnex() {
@@ -881,6 +901,13 @@ export default {
         });
 
         this.$refs.annex.value = null;
+      } else {
+        this.setMessage(
+          "warning",
+          "Anexo",
+          "Informe o anexo para que seja adicionado!",
+          4000
+        );
       }
     },
     addExam() {
@@ -890,7 +917,21 @@ export default {
         if (exam) {
           this.exams.push({ id: exam.id, name: exam.name });
           this.exam = "";
-        } else console.log("não achou");
+        } else {
+          this.setMessage(
+            "error",
+            "Exame não encontrado",
+            "Escolha um entre os exames pré-cadastrados!",
+            4000
+          );
+        }
+      } else {
+        this.setMessage(
+          "warning",
+          "Exame",
+          "Informe o exame para que seja adicionado!",
+          4000
+        );
       }
     },
     addMedicine() {
@@ -902,7 +943,21 @@ export default {
         if (medicine) {
           this.medicines.push({ id: medicine.id, name: medicine.name });
           this.medicine = "";
-        } else console.log("não achou");
+        } else {
+          this.setMessage(
+            "error",
+            "Medicamento não encontrado",
+            "Escolha um entre os medicamentos pré-cadastrados!",
+            4000
+          );
+        }
+      } else {
+        this.setMessage(
+          "warning",
+          "Medicamento",
+          "Informe o medicamento para que seja adicionado!",
+          4000
+        );
       }
     },
     addEspecification() {
@@ -917,9 +972,21 @@ export default {
 
         this.openMedicineEspec = false;
         this.especification = {};
+
+        this.setMessage(
+          "success",
+          "Detalhes de Medicamento",
+          "Os detalhes do medicamento foram adicionados!",
+          4000
+        );
+      } else {
+        this.setMessage(
+          "warning",
+          "Especificação de Medicamento",
+          "Quantidade, período e intervalo devem ser informados!",
+          4000
+        );
       }
-      // Limpa os campos
-      // Mensagem de que foi adicionado
     },
     removeSymptom(index) {
       this.symptoms.splice(index, 1);
