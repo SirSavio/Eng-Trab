@@ -63,7 +63,7 @@
           v-if="User.user.type == 'E'"
           class="flex items-center duration-200 mt-4 py-2 px-6 border-l-4"
           :class="[$route.name === 'QRCode' ? activeClass : inactiveClass]"
-          to="/qr-code"
+          to="/cartao-vacina"
         >
           <span class="h-5 w-5">
             <i class="fas fa-user-md"></i>
