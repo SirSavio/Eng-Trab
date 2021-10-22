@@ -47,7 +47,7 @@
             </div>
           </div>
 
-          <form @submit.prevent="">
+          <form @submit.prevent="abrirMensagem()">
             <div class="flex-none md:flex md:space-x-4">
               <div class="w-full md:w-1/2 mb-4">
                 <label
@@ -66,8 +66,10 @@
                 <input
                   id="name"
                   name="name"
-                  type="text"
-                  placeholder=""
+                  type="number"
+                  min="1"
+                  v-model="novaVacina.dose"
+                  placeholder="Dose"
                   class="
                     text-sm
                     sm:text-sm
@@ -101,7 +103,8 @@
                   id="surname"
                   name="surname"
                   type="text"
-                  placeholder=""
+                  v-model="novaVacina.lote"
+                  placeholder="Lote"
                   class="
                     text-sm
                     sm:text-sm
@@ -121,7 +124,6 @@
 
             <div class="flex justify-center pt-2">
               <button
-              @click="abrirMensagem()"
                 class="
                   px-6
                   py-3
@@ -195,6 +197,7 @@
           </select>
           <input
             type="search"
+            v-model="searchString"
             placeholder="Pesquisar vacina"
             class="
               float-right
@@ -232,88 +235,21 @@
               </tr>
             </thead>
             <tbody v-if="!naoAplicadas">
-              <tr class="bg-white text-center">
-                <td class="border px-4 py-2">Pfizer Covid-19</td>
-                <td class="border px-4 py-2">2021/01-15474</td>
-                <td class="border px-4 py-2">1</td>
-                <td class="border px-4 py-2">19/10/2021</td>
-                <td class="border px-4 py-2">Médico</td>
-              </tr>
-              <tr class="bg-white text-center">
-                <td class="border px-4 py-2">Pfizer Covid-19</td>
-                <td class="border px-4 py-2">2021/01-15474</td>
-                <td class="border px-4 py-2">1</td>
-                <td class="border px-4 py-2">19/10/2021</td>
-                <td class="border px-4 py-2">Médico</td>
-              </tr>
-              <tr class="bg-white text-center">
-                <td class="border px-4 py-2">Pfizer Covid-19</td>
-                <td class="border px-4 py-2">2021/01-15474</td>
-                <td class="border px-4 py-2">1</td>
-                <td class="border px-4 py-2">19/10/2021</td>
-                <td class="border px-4 py-2">Médico</td>
-              </tr>
-              <tr class="bg-white text-center">
-                <td class="border px-4 py-2">Pfizer Covid-19</td>
-                <td class="border px-4 py-2">2021/01-15474</td>
-                <td class="border px-4 py-2">1</td>
-                <td class="border px-4 py-2">19/10/2021</td>
-                <td class="border px-4 py-2">Médico</td>
-              </tr>
-              <tr class="bg-white text-center">
-                <td class="border px-4 py-2">Pfizer Covid-19</td>
-                <td class="border px-4 py-2">2021/01-15474</td>
-                <td class="border px-4 py-2">1</td>
-                <td class="border px-4 py-2">19/10/2021</td>
-                <td class="border px-4 py-2">Médico</td>
-              </tr>
-              <tr class="bg-white text-center">
-                <td class="border px-4 py-2">Pfizer Covid-19</td>
-                <td class="border px-4 py-2">2021/01-15474</td>
-                <td class="border px-4 py-2">1</td>
-                <td class="border px-4 py-2">19/10/2021</td>
-                <td class="border px-4 py-2">Médico</td>
-              </tr>
-              <tr class="bg-white text-center">
-                <td class="border px-4 py-2">Pfizer Covid-19</td>
-                <td class="border px-4 py-2">2021/01-15474</td>
-                <td class="border px-4 py-2">1</td>
-                <td class="border px-4 py-2">19/10/2021</td>
-                <td class="border px-4 py-2">Médico</td>
+              <tr v-for="(vacina, index) in historico" :key="index" class="bg-white text-center">
+                <td class="border px-4 py-2">{{vacina.nome}}</td>
+                <td class="border px-4 py-2">{{vacina.lote}}</td>
+                <td class="border px-4 py-2">{{vacina.dose}}</td>
+                <td class="border px-4 py-2">{{vacina.data}}</td>
+                <td class="border px-4 py-2">{{vacina.aplicador}}</td>
               </tr>
             </tbody>
             <tbody v-else>
-              <tr class="bg-white text-center">
-                <td class="border px-4 py-2">Astrazeneca Covid-19</td>
+              <tr v-for="(vacina, index) in vacinasNaoAplicadas" :key="index" class="bg-white text-center">
+                <td class="border px-4 py-2">{{vacina.nome}}</td>
                 <td v-if="$store.state.User.user.type != 'P'" class="border px-4 py-2">
                   <button
                     type="button"
-                    @click="openVacinar = true"
-                    class="
-                      transition
-                      duration-150
-                      py-2
-                      px-4
-                      bg-green-500
-                      hover:bg-green-500
-                      text-white
-                      font-bold
-                      border-b-4 border-green-500
-                      focus:outline-none
-                      rounded
-                      w-full
-                    "
-                  >
-                    Vacinar
-                  </button>
-                </td>
-              </tr>
-              <tr class="bg-white text-center">
-                <td class="border px-4 py-2">Antirrábica</td>
-                <td v-if="$store.state.User.user.type != 'P'" class="border px-4 py-2">
-                  <button
-                    type="button"
-                    @click="openVacinar = true"
+                    @click="openVacinarModal(vacina.nome)"
                     class="
                       transition
                       duration-150
@@ -364,21 +300,24 @@ export default {
       title: "",
       type: "",
       id: undefined,
-
-      historic: [{}],
+      historico: [{nome: "Pfizer Covid-19", lote: "2021/01-15474", dose: 1, data: "19/10/2021", aplicador: "Médico"}, {nome: "Pfizer Covid-19", lote: "2021/01-15474", dose: 2, data: "19/11/2021", aplicador: "Enfermeiro"}],
+      historicoData: [{nome: "Pfizer Covid-19", lote: "2021/01-15474", dose: 1, data: "19/10/2021", aplicador: "Médico"}, {nome: "Pfizer Covid-19", lote: "2021/01-15474", dose: 2, data: "19/11/2021", aplicador: "Enfermeiro"}],
       mode: false,
 
+      vacinasNaoAplicadas: [{nome: "Astrazeneca Covid-19"}, {nome: "Antirrábica"}, {nome: "Polivalente"}],
+      vacinasNaoAplicadasData: [{nome: "Astrazeneca Covid-19"}, {nome: "Antirrábica"}, {nome: "Polivalente"}],
+      novaVacina: {nome: "", lote: "", dose: ""},
       openConfirm: false,
       openApprove: false,
-      search: "",
+      searchString: "",
 
       naoAplicadas: false,
       openVacinar: false,
+      searchString: ""
     };
   },
   async created() {
     this.type = this.$store.state.User.user.type;
-    console.log(this.type);
   },
   methods: {
     setMessage(type, title, message, time) {
@@ -397,7 +336,25 @@ export default {
     },
     abrirMensagem(){
         this.openVacinar = false;
+        let data = {
+          ...this.novaVacina, aplicador: this.type == "M" ? "Médico" : "Enfermeiro", data: new Date().toLocaleString().substring(0,10)
+        }
+        
+        this.historicoData.push(data)
+        this.historico.push(data)
+
+        //Nao remover pois caso necessite de mais doses futuramente está lá (?)
+        // this.vacinasNaoAplicadas = this.vacinasNaoAplicadas.filter(vacina => {
+        //   return vacina.nome != data.nome
+        // })
+        // this.vacinasNaoAplicadasData = this.vacinasNaoAplicadasData.filter(vacina => {
+        //   return vacina.nome != data.nome
+        // })
         this.setMessage('success', 'Sucesso!', 'Vacina cadastrada com sucesso!', 3000)
+    },
+    openVacinarModal(vacinaNome){
+      this.novaVacina.nome = vacinaNome
+      this.openVacinar = true
     }
   },
   watch: {
@@ -409,6 +366,15 @@ export default {
         this.openApprove = true;
       }, 3000);
     },
+    searchString(){
+      this.historico = this.historicoData.filter(vacina => {
+        return vacina.nome.toLowerCase().indexOf(this.searchString.toLowerCase()) > -1 || vacina.lote.toLowerCase().indexOf(this.searchString.toLowerCase()) > -1 || vacina.data.toLowerCase().indexOf(this.searchString.toLowerCase()) > -1 || vacina.aplicador.toLowerCase().indexOf(this.searchString.toLowerCase()) > -1 ? vacina : undefined
+      })
+
+      this.vacinasNaoAplicadas = this.vacinasNaoAplicadasData.filter(vacina => {
+        return vacina.nome.toLowerCase().indexOf(this.searchString.toLowerCase()) > -1
+      })
+    }
   },
 };
 </script>s
