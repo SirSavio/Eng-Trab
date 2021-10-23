@@ -1,24 +1,27 @@
-# frontend
+# GRUPO 3 - Protótipo Sistema de Histórico Médico: Saúde +
 
-## Project setup
+**Alunos:** Erick Lima Figueiredo, Guilherme Oliveira Fonseca e Sávio Mendes Miranda
+**Matrículas:** 98898, 98889 e 98886; 
+
+## Pré-requisitos de funcionamento da interface
+
+Ter instalados em máquina:
+
+- Node.js
+- NPM
+
+## Instalação de Dependências
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compilar no Modo Desenvolvimento com hot-reload (Recomendado)
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Compilar e Mimificar Arquivos para Produção
 ```
 npm run build
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
