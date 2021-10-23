@@ -110,7 +110,7 @@
           <div class="w-full flex mt-20 justify-end pt-2">
               <button
                 type="button"
-                @click="$router.push('/cartao-vacina')"
+                @click="$router.push({name: 'CartaoVacina', params: {id}})"
                 class="
                   px-6
                   py-3
@@ -127,7 +127,7 @@
                 Cartão de Vacina
               </button>
               <button
-                @click="$router.push('/consulta')"
+                @click="$router.push({name: 'ConsultaMedica', params: {id}})"
                 class="
                   px-6
                   py-3
@@ -206,12 +206,12 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="bg-gray-100">
-                <td class="border px-4 py-2">Paciente</td>
+              <tr v-for="(user, index) in $store.state.User.list" class="bg-gray-100">
+                <td class="border px-4 py-2">{{user.name}}</td>
                 <td class="border px-4 py-2">
                   <button
                     type="button"
-                    @click="openConfirm = true"
+                    @click="openConfirmAction(user.id)"
                     class="
                       transition
                       duration-150
@@ -268,6 +268,8 @@ export default {
       openConfirm: false,
       openApprove: false,
       search: "",
+
+      id: undefined
     };
   },
   async created() {
@@ -292,6 +294,10 @@ export default {
         2
       )}`;
     },
+    openConfirmAction(id){
+      this.id = id;
+      this.openConfirm = true;
+    }
   },
   watch: {
     openConfirm(newValue, oldValue) {

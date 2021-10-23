@@ -38,7 +38,7 @@
             </div>
           </div>
           <p>
-            Tem certeza que deseja cancelar o atendimento de {{ firstName }}?
+            Tem certeza que deseja cancelar o atendimento de {{ user.name }}?
           </p>
           <div class="flex justify-center">
             <button
@@ -223,7 +223,7 @@
       <div v-if="isStepOne" class="container mt-8">
         <div class="w-full mb-8">
           <h2 class="text-gray-700 text-xl font-medium mt-0 mb-3">
-            Dados de {{ firstName }}
+            Dados de {{ user.name }}
           </h2>
           <div class="px-5 py-6 shadow-sm rounded-md bg-white">
             <div class="w-full md:flex md:space-x-4 mb-8">
@@ -870,9 +870,6 @@ export default {
     };
   },
   computed: {
-    firstName() {
-      return this.user.name.split(" ")[0];
-    },
     genderByExtense() {
       return this.user.gender === "M" ? "Masculino" : "Feminino";
     },
@@ -1022,6 +1019,8 @@ export default {
     const user = this.$store.state.User.user;
 
     if (user === "P" || user === "E") return this.$router.push("/painel");
+    this.user = this.$store.state.User.list.filter(user => user.id == this.$route.params.id)
+    this.user = this.user[0]
   },
 };
 </script>

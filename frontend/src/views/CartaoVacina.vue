@@ -172,7 +172,7 @@
       </div>
       
       <h1 class="text-2xl mt-10 text-gray-800 mb-2">
-        Cartão de Vacinação de Paciente
+        Cartão de Vacinação de {{user[0].name}}
       </h1>
       <div class="flex-none lg:flex w-full lg:space-x-4 mb-12">
         <div class="w-full lg:w-full bg-white mt-4 rounded-lg p-6">
@@ -313,11 +313,15 @@ export default {
 
       naoAplicadas: false,
       openVacinar: false,
-      searchString: ""
+      searchString: "",
+
+      user: {}
     };
   },
   async created() {
     this.type = this.$store.state.User.user.type;
+
+    this.user = this.$store.state.User.list.filter(user => user.id == this.$route.params.id)
   },
   methods: {
     setMessage(type, title, message, time) {

@@ -30,6 +30,11 @@ export default {
     actions,
     mutations,
     state: {
-        user: window.localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')) : user
+        user: window.localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')) : user,
+        list: [
+            {id: 1, name: "Sávio Miranda", birthdate: "19/10/2000", gender: "M"},
+            {id: 2, name: "Erick Lima", birthdate: "18/02/2001", gender: "M"},
+            {id: 3, name: "Guilherme Fonseca", birthdate: "05/02/2000", gender: "M"}
+        ]
     }
 }

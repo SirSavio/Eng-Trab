@@ -24,7 +24,7 @@ const routes = [
     meta: {layout: 'default'}
   },
   {
-    path: '/consulta',
+    path: '/consulta/:id',
     name: 'ConsultaMedica',
     component: Appointment,
     meta: {layout: 'default'}
@@ -36,7 +36,7 @@ const routes = [
     meta: {layout: 'default'}
   },
   {
-    path: '/cartao-vacina',
+    path: '/cartao-vacina/:id',
     name: 'CartaoVacina',
     component: CartaoVacina,
     meta: {layout: 'default'}
