@@ -22,7 +22,7 @@ npm install
 npm run serve
 ```
 
-### Compilar e Mimificar Arquivos para Produção
+### Compilar e Minificar Arquivos para Produção
 ```
 npm run build
 ```
