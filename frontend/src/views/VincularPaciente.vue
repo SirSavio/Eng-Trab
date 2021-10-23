@@ -173,11 +173,12 @@
                 py-2
                 px-4
               "
-              v-model="search"
+              v-model="searchString"
               required
             />
             <button
-              type="submit"
+              type="button"
+              @click="search()"
               class="
                 transition
                 duration-150
@@ -206,7 +207,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(user, index) in $store.state.User.list" class="bg-gray-100">
+              <tr v-for="(user, index) in user" class="bg-gray-100">
                 <td class="border px-4 py-2">{{user.name}}</td>
                 <td class="border px-4 py-2">
                   <button
@@ -267,9 +268,10 @@ export default {
 
       openConfirm: false,
       openApprove: false,
-      search: "",
+      searchString: "",
 
-      id: undefined
+      id: undefined,
+      user: {}
     };
   },
   async created() {
@@ -278,6 +280,8 @@ export default {
     if (this.type != "M") {
       this.$router.push("/painel");
     }
+
+    this.user = this.$store.state.User.list
   },
   methods: {
     setMessage(type, title, message, time) {
@@ -297,6 +301,9 @@ export default {
     openConfirmAction(id){
       this.id = id;
       this.openConfirm = true;
+    },
+    search(){
+      this.user = this.$store.state.User.list.filter(user => user.name.indexOf(this.searchString) > -1)
     }
   },
   watch: {
